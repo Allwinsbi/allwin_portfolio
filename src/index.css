@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink font-body antialiased;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display leading-[1.1] tracking-tight;
+  }
+  :focus-visible {
+    outline: 2px solid theme('colors.accent');
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: theme('colors.accent');
+    color: theme('colors.paper');
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-2 rounded font-semibold text-[0.95rem] px-6 py-3 border border-transparent transition-transform duration-150 active:translate-y-px;
+  }
+  .btn-primary {
+    @apply bg-cta text-paper hover:bg-cta-deep transition-colors shadow-sm shadow-cta/30;
+  }
+  .btn-secondary {
+    @apply bg-transparent text-ink border-line hover:border-accent hover:text-accent transition-colors;
+  }
+  .btn-primary-inverted {
+    @apply bg-cta text-paper hover:bg-cta-deep transition-colors;
+  }
+  .btn-secondary-inverted {
+    @apply bg-transparent text-paper border-paper/30 hover:border-paper hover:bg-paper/10 transition-colors;
+  }
+}
+
+/* Scroll reveal — kept as plain CSS since it's driven by a JS IntersectionObserver
+   toggling a class, not by a utility combination. */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal.r1 { transition-delay: 0.06s; }
+.reveal.r2 { transition-delay: 0.12s; }
+.reveal.r3 { transition-delay: 0.18s; }
+.reveal.r4 { transition-delay: 0.24s; }
+.reveal.r5 { transition-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
