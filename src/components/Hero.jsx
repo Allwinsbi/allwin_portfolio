@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative pt-[150px] sm:pt-[190px] pb-20 sm:pb-28 overflow-hidden bg-hero"
+      className="relative pt-[110px] sm:pt-[140px] pb-20 sm:pb-28 overflow-hidden bg-hero"
     >
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-hero via-hero to-hero-glow" />
