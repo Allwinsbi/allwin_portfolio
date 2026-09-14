@@ -62,8 +62,8 @@ show a small category icon instead.
 ## Notes
 
 - Every "Start a Project" CTA (nav, hero, contact) and the footer point to
-  `mailto:allwinsbi@gmail.com` — email is the single primary contact method,
-  no phone number or WhatsApp link anywhere.
+  `mailto:info.vilzoo@gmail.com`. WhatsApp contact uses +91 9789365165
+  (see `src/data/contact.js`).
 - Add LinkedIn/GitHub links in `Footer.jsx` once you have real URLs — none
   are included since none were provided.
 - Project statuses are exactly: VILZOO → Live, AERONERO → Live, THANGAM →
