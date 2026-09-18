@@ -46,8 +46,8 @@ export default function About() {
 
           <div className="grid gap-px bg-line border border-line">
             {CARDS.map((c, i) => (
-              <div className={`bg-paper px-7 py-6 reveal r${(i % 3) + 1}`} key={c.title}>
-                <h3 className="text-[1.02rem] font-semibold mb-2">{c.title}</h3>
+              <div className={`bg-black px-7 py-6 reveal r${(i % 3) + 1}`} key={c.title}>
+                <h3 className="text-[1.02rem] font-semibold mb-2 text-white">{c.title}</h3>
                 <p className="text-ink-soft text-[0.95rem]">{c.text}</p>
               </div>
             ))}
