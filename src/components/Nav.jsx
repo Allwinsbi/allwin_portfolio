@@ -3,6 +3,7 @@ import { useStartProject } from '../hooks/useStartProject'
 
 const LINKS = [
   { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
   { id: 'services', label: 'Services' },
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
@@ -10,17 +11,9 @@ const LINKS = [
 ]
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false)
+  const openStartProject = useStartProject()
   const [active, setActive] = useState('')
   const [menuOpen, setMenuOpen] = useState(false)
-  const openStartProject = useStartProject()
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   useEffect(() => {
     const sections = LINKS.map((l) => document.getElementById(l.id)).filter(Boolean)
@@ -43,37 +36,25 @@ export default function Nav() {
   }
 
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 border-b transition-colors duration-300 ${
-        scrolled ? 'bg-paper/90 backdrop-blur-md border-line' : 'bg-transparent border-transparent'
-      }`}
-    >
-      <div className="max-w-content mx-auto px-5 sm:px-7 flex items-center h-[80px] gap-8">
+    <header className="fixed top-3 sm:top-5 inset-x-0 z-50 px-3 sm:px-5">
+      <div className="max-w-content mx-auto flex items-center h-[64px] gap-6 rounded-full bg-ink/95 backdrop-blur-md border border-white/10 px-5 sm:px-7 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.6)]">
         <a
           href="#home"
-          className={`font-display font-extrabold text-xl sm:text-2xl tracking-tight transition-colors ${
-            scrolled ? 'text-ink' : 'text-paper'
-          }`}
+          className="font-display text-paper text-[1.05rem] tracking-tight"
           onClick={(e) => {
             e.preventDefault()
             handleNavClick('home')
           }}
         >
-          ALLWIN S
+          ALLWIN<span className="text-red">.S</span>
         </a>
 
-        <nav className="hidden md:flex gap-7 text-[0.92rem] ml-auto" aria-label="Primary">
+        <nav className="hidden md:flex gap-7 text-[0.86rem] font-semibold uppercase tracking-wide ml-auto" aria-label="Primary">
           {LINKS.map((link) => (
             <a
               key={link.id}
               href={`#${link.id}`}
-              className={`relative py-1 transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-[3px] after:h-[1.5px] after:w-full after:origin-left after:transition-transform after:duration-250 ${
-                scrolled ? 'after:bg-accent' : 'after:bg-cta'
-              } ${
-                active === link.id
-                  ? `after:scale-x-100 ${scrolled ? 'text-ink' : 'text-paper'}`
-                  : `after:scale-x-0 ${scrolled ? 'text-ink-soft hover:text-ink' : 'text-paper/75 hover:text-paper'}`
-              }`}
+              className={`transition-colors ${active === link.id ? 'text-red' : 'text-white/65 hover:text-white'}`}
               onClick={(e) => {
                 e.preventDefault()
                 handleNavClick(link.id)
@@ -85,10 +66,11 @@ export default function Nav() {
         </nav>
 
         <button
+          type="button"
           onClick={openStartProject}
-          className="btn btn-primary hidden md:inline-flex px-5 py-2.5 text-[0.88rem]"
+          className="btn btn-primary hidden md:inline-flex px-5 py-2.5 text-[0.85rem] ml-auto md:ml-0"
         >
-          Start a Project
+          Let's Talk
         </button>
 
         <button
@@ -97,19 +79,19 @@ export default function Nav() {
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((v) => !v)}
         >
-          <span className={`w-[22px] h-[2px] block ${scrolled ? 'bg-ink' : 'bg-paper'}`} />
-          <span className={`w-[22px] h-[2px] block ${scrolled ? 'bg-ink' : 'bg-paper'}`} />
-          <span className={`w-[22px] h-[2px] block ${scrolled ? 'bg-ink' : 'bg-paper'}`} />
+          <span className="w-[22px] h-[2px] bg-paper block" />
+          <span className="w-[22px] h-[2px] bg-paper block" />
+          <span className="w-[22px] h-[2px] bg-paper block" />
         </button>
       </div>
 
       {menuOpen && (
-        <div className="md:hidden flex flex-col gap-1 px-5 pt-3 pb-6 bg-paper border-b border-line">
+        <div className="md:hidden max-w-content mx-auto mt-2 flex flex-col gap-1 px-5 pt-3 pb-6 bg-ink rounded-3xl border border-white/10">
           {LINKS.map((link) => (
             <a
               key={link.id}
               href={`#${link.id}`}
-              className="py-3 px-1 text-[1rem] text-ink border-b border-line"
+              className="py-3 px-1 text-[1rem] text-paper border-b border-white/10"
               onClick={(e) => {
                 e.preventDefault()
                 handleNavClick(link.id)
@@ -119,13 +101,14 @@ export default function Nav() {
             </a>
           ))}
           <button
+            type="button"
+            className="btn btn-primary justify-center mt-3"
             onClick={() => {
               setMenuOpen(false)
               openStartProject()
             }}
-            className="btn btn-primary justify-center mt-3"
           >
-            Start a Project
+            Let's Talk
           </button>
         </div>
       )}

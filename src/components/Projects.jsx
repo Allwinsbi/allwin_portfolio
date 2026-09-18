@@ -12,10 +12,9 @@ export default function Projects() {
     <section id="projects" className="py-16 sm:py-28" ref={ref}>
       <Container>
         <div className="mb-12 reveal">
-          <h2 className="font-display text-[1.9rem] sm:text-[2.6rem] font-extrabold text-paper max-w-[18ch] mb-3">
-            Selected work
-          </h2>
-          <p className="text-paper-soft text-[1.02rem] max-w-[48ch]">
+          <span className="eyebrow">Selected Outcomes</span>
+          <h2 className="section-title mb-3">Selected Work</h2>
+          <p className="text-ink-soft text-[1.02rem] max-w-[48ch] mt-3">
             A mix of live client products and projects currently in development.
           </p>
         </div>

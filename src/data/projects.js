@@ -5,7 +5,8 @@ export const projects = [
     category: 'Modern E-commerce Platform',
     status: 'live',
     url: 'https://vilzoo.vercel.app',
-    screenshot: `${import.meta.env.BASE_URL}projects/vilzoo.png`,
+    image: '/projects/vilzoo.png',
+    imageAspect: '1814 / 875',
     description:
       'A modern e-commerce platform designed to provide a smooth and intuitive online shopping experience. VILZOO focuses on making product discovery, browsing and customer interactions simple while providing a strong foundation for e-commerce operations.',
     highlights: [
@@ -26,7 +27,8 @@ export const projects = [
     category: 'Water Technology & E-commerce Platform',
     status: 'live',
     url: 'https://www.aeronero.com',
-    screenshot: `${import.meta.env.BASE_URL}projects/aeronero.png`,
+    image: '/projects/aeronero.png',
+    imageAspect: '1795 / 842',
     description:
       'A product-focused digital platform developed for AERONERO, a water-technology business. The website combines business storytelling, product presentation and e-commerce functionality to create a professional digital experience for customers exploring water technology solutions.',
     highlights: [
@@ -47,7 +49,8 @@ export const projects = [
     category: 'Traditional Business Website',
     status: 'coming-soon',
     url: null,
-    screenshot: `${import.meta.env.BASE_URL}projects/thangam.png`,
+    image: '/projects/thangam.png',
+    imageAspect: '1672 / 941',
     description:
       'A modern digital presence created for a traditional business, combining the identity and character of the business with a contemporary web experience. The project focuses on presenting the business, its offerings and its identity in a clear, engaging and professional way while providing a smooth experience across modern devices.',
     highlights: [
@@ -67,6 +70,7 @@ export const projects = [
     category: 'Privacy-Focused Social & Dating Mobile Application',
     status: 'coming-soon',
     url: null,
+    icon: 'heart',
     description:
       'A privacy-focused social and dating mobile application designed around simplicity, user experience and privacy. The product is being developed with a strong focus on creating a comfortable and intuitive environment for social interaction and matching.',
     highlights: [
@@ -86,6 +90,7 @@ export const projects = [
     category: 'Global Home Services Platform',
     status: 'coming-soon',
     url: null,
+    icon: 'services',
     description:
       'SYNZOO is a global platform concept designed to connect customers with professionals for everyday home and property services. The vision is to make it easier for people to discover and connect with suitable professionals for services such as plumbing, electrical work, home maintenance, repairs and other household services.',
     highlights: [

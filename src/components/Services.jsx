@@ -13,24 +13,27 @@ const SERVICES = [
 export default function Services() {
   const ref = useReveal()
   return (
-    <section id="services" className="py-16 sm:py-28 bg-surface border-y border-line" ref={ref}>
+    <section id="services" className="py-16 sm:py-28 bg-ink" ref={ref}>
       <Container>
-        <h2 className="text-[1.9rem] sm:text-[2.6rem] font-extrabold max-w-[18ch] mb-10 text-ink reveal">
-          What I Can Build
-        </h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line border border-line rounded-lg overflow-hidden">
-          {SERVICES.map((s, i) => (
-            <div
-              className={`bg-surface hover:bg-surface-soft transition-colors px-7 py-8 reveal r${(i % 3) + 1}`}
-              key={s.title}
-            >
-              <span className="block font-display text-accent text-[0.85rem] mb-3.5">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <h3 className="text-[1.08rem] font-semibold mb-2.5 text-ink">{s.title}</h3>
-              <p className="text-ink-soft text-[0.94rem]">{s.text}</p>
-            </div>
-          ))}
+        <span className="eyebrow reveal">What I Build</span>
+        <h2 className="section-title text-paper mb-10 reveal">Services</h2>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
+          {SERVICES.map((s, i) => {
+            const dark = i % 2 === 0
+            return (
+              <div
+                className={`px-7 py-8 reveal r${(i % 3) + 1} ${dark ? 'bg-ink text-paper' : 'bg-paper text-ink'}`}
+                key={s.title}
+              >
+                <span className={`block font-display text-[2rem] mb-3.5 ${dark ? 'text-red' : 'text-red-deep'}`}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="text-[1.08rem] font-semibold mb-2.5">{s.title}</h3>
+                <p className={`text-[0.94rem] ${dark ? 'text-white/60' : 'text-ink-soft'}`}>{s.text}</p>
+              </div>
+            )
+          })}
         </div>
       </Container>
     </section>

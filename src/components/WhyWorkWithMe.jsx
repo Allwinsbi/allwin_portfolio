@@ -12,15 +12,14 @@ const POINTS = [
 export default function WhyWorkWithMe() {
   const ref = useReveal()
   return (
-    <section className="py-16 sm:py-28 bg-paper" ref={ref}>
+    <section className="py-16 sm:py-28" ref={ref}>
       <Container>
-        <h2 className="text-[1.9rem] sm:text-[2.6rem] font-extrabold max-w-[18ch] mb-10 text-ink reveal">
-          More Than Just Code
-        </h2>
-        <div className="grid sm:grid-cols-2 gap-px bg-line border border-line rounded-lg overflow-hidden">
+        <span className="eyebrow reveal">Why Work With Me</span>
+        <h2 className="section-title mb-10 reveal">More Than Just Code</h2>
+        <div className="grid sm:grid-cols-2 gap-px bg-line border border-line">
           {POINTS.map((p, i) => (
-            <div className={`bg-surface px-8 py-8 reveal r${(i % 3) + 1}`} key={p.title}>
-              <h3 className="text-[1.05rem] font-semibold mb-2.5 text-ink">{p.title}</h3>
+            <div className={`bg-paper px-8 py-8 reveal r${(i % 3) + 1}`} key={p.title}>
+              <h3 className="text-[1.05rem] font-semibold mb-2.5">{p.title}</h3>
               <p className="text-ink-soft text-[0.94rem] max-w-[46ch]">{p.text}</p>
             </div>
           ))}

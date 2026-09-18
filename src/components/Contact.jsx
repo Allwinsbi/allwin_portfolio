@@ -1,41 +1,42 @@
 import { useReveal } from '../hooks/useReveal'
 import Container from './Container'
-import { EMAIL, EMAIL_URL } from '../data/contact'
-import { useStartProject } from '../hooks/useStartProject'
+
+const LINKS = [
+  { label: 'Email', href: 'mailto:allwinsbi@gmail.com' },
+  { label: 'GitHub', href: 'https://github.com/Allwinsbi' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/allwin-s-942a172b7' },
+]
 
 export default function Contact() {
   const ref = useReveal()
-  const openStartProject = useStartProject()
   return (
-    <section id="contact" className="py-16 sm:py-28 bg-surface border-t border-line" ref={ref}>
+    <section id="contact" className="py-16 sm:py-28 bg-ink text-paper" ref={ref}>
       <Container>
-        <div className="text-center max-w-[680px] mx-auto reveal">
-          <h2 className="font-display text-[1.9rem] sm:text-[2.7rem] font-extrabold text-ink">
-            Have an Idea? Let's Turn It Into Reality.
+        <div className="reveal">
+          <span className="eyebrow">Collab</span>
+          <h2 className="section-title text-paper max-w-[14ch] mb-8">
+            Let's Build Something.
           </h2>
-          <p className="mt-6 text-ink-soft text-[1.05rem]">
+
+          <p className="text-white/65 text-[1.05rem] max-w-[56ch] mb-10">
             Whether you need a modern business website, an e-commerce platform, a
             web application or a new digital product, I'd be happy to discuss your
-            idea. Tell me what you're trying to build, what problem you're solving
-            and what you want your users to experience.
+            idea.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mt-9">
-            <button onClick={openStartProject} className="btn btn-primary px-8 py-4 text-[1rem]">
-              Start a Project
-            </button>
+          <div className="grid sm:grid-cols-3 gap-3 max-w-[640px]">
+            {LINKS.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                target={l.href.startsWith('http') ? '_blank' : undefined}
+                rel={l.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="rounded-xl border border-white/15 bg-white/[0.03] px-5 py-4 text-center font-semibold hover:border-red hover:text-red transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
           </div>
-
-          <a
-            href={EMAIL_URL}
-            className="block mt-6 text-ink-soft text-[0.94rem] underline underline-offset-4 hover:text-accent"
-          >
-            {EMAIL}
-          </a>
-
-          <p className="mt-5 text-ink-soft/70 text-[0.85rem]">
-            Based in India · IST (UTC+5:30) · Open to working with clients worldwide, usually responds within a few hours
-          </p>
         </div>
       </Container>
     </section>

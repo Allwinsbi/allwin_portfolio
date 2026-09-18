@@ -12,11 +12,12 @@ const CARDS = [
 export default function About() {
   const ref = useReveal()
   return (
-    <section id="about" className="py-16 sm:py-28 bg-paper" ref={ref}>
+    <section id="about" className="py-16 sm:py-28" ref={ref}>
       <Container>
         <div className="grid md:grid-cols-2 gap-10 md:gap-[72px] items-start">
           <div className="reveal">
-            <h2 className="text-[1.9rem] sm:text-[2.6rem] font-extrabold max-w-[18ch] mb-10 text-ink">
+            <span className="eyebrow">About Me</span>
+            <h2 className="section-title max-w-[14ch] mb-10">
               Building Digital Products With Purpose
             </h2>
             <div className="space-y-[18px]">
@@ -43,13 +44,10 @@ export default function About() {
             </div>
           </div>
 
-          <div className="grid gap-px bg-line border border-line rounded-lg overflow-hidden">
+          <div className="grid gap-px bg-line border border-line">
             {CARDS.map((c, i) => (
-              <div
-                className={`bg-surface hover:bg-surface-soft transition-colors px-7 py-6 reveal r${(i % 3) + 1}`}
-                key={c.title}
-              >
-                <h3 className="text-[1.02rem] font-semibold mb-2 text-ink">{c.title}</h3>
+              <div className={`bg-paper px-7 py-6 reveal r${(i % 3) + 1}`} key={c.title}>
+                <h3 className="text-[1.02rem] font-semibold mb-2">{c.title}</h3>
                 <p className="text-ink-soft text-[0.95rem]">{c.text}</p>
               </div>
             ))}

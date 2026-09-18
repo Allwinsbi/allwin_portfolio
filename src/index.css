@@ -12,34 +12,45 @@
     line-height: 1.6;
   }
   h1, h2, h3, h4 {
-    @apply font-display leading-[1.1] tracking-tight;
+    @apply font-body leading-[1.1] tracking-normal;
   }
   :focus-visible {
-    outline: 2px solid theme('colors.accent');
+    outline: 2px solid theme('colors.red');
     outline-offset: 3px;
   }
   ::selection {
-    background: theme('colors.accent');
+    background: theme('colors.red');
     color: theme('colors.paper');
   }
 }
 
 @layer components {
   .btn {
-    @apply inline-flex items-center gap-2 rounded font-semibold text-[0.95rem] px-6 py-3 border border-transparent transition-transform duration-150 active:translate-y-px;
+    @apply inline-flex items-center gap-2 rounded-full font-semibold text-[0.95rem] px-6 py-3 border border-transparent transition-transform duration-150 active:translate-y-px;
   }
   .btn-primary {
-    @apply bg-cta text-paper hover:bg-cta-deep transition-colors shadow-sm shadow-cta/30;
+    @apply bg-red text-paper hover:bg-red-deep transition-colors;
   }
   .btn-secondary {
-    @apply bg-transparent text-ink border-line hover:border-accent hover:text-accent transition-colors;
+    @apply bg-transparent text-ink border-line hover:border-ink transition-colors;
   }
-  .btn-primary-inverted {
-    @apply bg-cta text-paper hover:bg-cta-deep transition-colors;
+  .eyebrow {
+    @apply text-red text-[0.82rem] font-semibold tracking-[0.14em] uppercase mb-3 block;
   }
-  .btn-secondary-inverted {
-    @apply bg-transparent text-paper border-paper/30 hover:border-paper hover:bg-paper/10 transition-colors;
+  .section-title {
+    @apply font-display uppercase text-[2.4rem] sm:text-[3.4rem] leading-[1.05] tracking-normal;
   }
+}
+
+/* Marquee ticker strip */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 /* Scroll reveal — kept as plain CSS since it's driven by a JS IntersectionObserver

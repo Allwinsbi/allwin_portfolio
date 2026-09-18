@@ -1,7 +1,9 @@
-import { useEffect } from 'react'
-import { EMAIL, EMAIL_URL, WHATSAPP_URL } from '../data/contact'
+import { useEffect, useState } from 'react'
+import { EMAIL, EMAIL_URL, PHONE_DISPLAY, PHONE_URL, WHATSAPP_URL } from '../data/contact'
 
 export default function StartProjectModal({ open, onClose }) {
+  const [copied, setCopied] = useState(false)
+
   useEffect(() => {
     if (!open) return
     const onKey = (e) => e.key === 'Escape' && onClose()
@@ -13,7 +15,20 @@ export default function StartProjectModal({ open, onClose }) {
     }
   }, [open, onClose])
 
+  useEffect(() => {
+    if (!open) setCopied(false)
+  }, [open])
+
   if (!open) return null
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL)
+      setCopied(true)
+    } catch {
+      setCopied(false)
+    }
+  }
 
   return (
     <div
@@ -32,14 +47,14 @@ export default function StartProjectModal({ open, onClose }) {
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-ink-soft hover:bg-surface hover:text-ink transition-colors"
+          className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-ink-soft hover:bg-paper-dim hover:text-ink transition-colors"
         >
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <path d="M6 6l12 12M18 6 6 18" />
           </svg>
         </button>
 
-        <h3 id="start-project-title" className="font-display text-xl font-extrabold text-ink mb-2">
+        <h3 id="start-project-title" className="font-bold text-xl text-ink mb-2">
           Let's Start a Project
         </h3>
         <p className="text-ink-soft text-[0.94rem] mb-6">
@@ -52,7 +67,7 @@ export default function StartProjectModal({ open, onClose }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
-            className="flex items-center gap-3 rounded-lg border border-line px-5 py-4 hover:border-accent hover:bg-surface transition-colors"
+            className="flex items-center gap-3 rounded-lg border border-line px-5 py-4 hover:border-red hover:bg-paper-dim transition-colors"
           >
             <span className="w-10 h-10 rounded-full bg-live/10 text-live flex items-center justify-center shrink-0">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
@@ -61,26 +76,61 @@ export default function StartProjectModal({ open, onClose }) {
             </span>
             <span>
               <span className="block text-ink font-semibold text-[0.96rem]">WhatsApp</span>
-              <span className="block text-ink-soft text-[0.82rem]">Chat with me directly</span>
+              <span className="block text-ink-soft text-[0.82rem]">{PHONE_DISPLAY}</span>
+            </span>
+          </a>
+
+          <a
+            href={PHONE_URL}
+            onClick={onClose}
+            className="flex items-center gap-3 rounded-lg border border-line px-5 py-4 hover:border-red hover:bg-paper-dim transition-colors"
+          >
+            <span className="w-10 h-10 rounded-full bg-red/10 text-red flex items-center justify-center shrink-0">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z" />
+              </svg>
+            </span>
+            <span>
+              <span className="block text-ink font-semibold text-[0.96rem]">Call</span>
+              <span className="block text-ink-soft text-[0.82rem]">{PHONE_DISPLAY}</span>
             </span>
           </a>
 
           <a
             href={EMAIL_URL}
             onClick={onClose}
-            className="flex items-center gap-3 rounded-lg border border-line px-5 py-4 hover:border-accent hover:bg-surface transition-colors"
+            className="flex items-center gap-3 rounded-lg border border-line px-5 py-4 hover:border-red hover:bg-paper-dim transition-colors"
           >
-            <span className="w-10 h-10 rounded-full bg-accent/10 text-accent flex items-center justify-center shrink-0">
+            <span className="w-10 h-10 rounded-full bg-red/10 text-red flex items-center justify-center shrink-0">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M3 6h18v12H3z" />
                 <path d="m3 7 9 6 9-6" />
               </svg>
             </span>
             <span>
-              <span className="block text-ink font-semibold text-[0.96rem]">Email</span>
+              <span className="block text-ink font-semibold text-[0.96rem]">Open in Mail App</span>
               <span className="block text-ink-soft text-[0.82rem]">{EMAIL}</span>
             </span>
           </a>
+
+          <button
+            type="button"
+            onClick={handleCopy}
+            className="flex items-center gap-3 rounded-lg border border-line px-5 py-4 hover:border-red hover:bg-paper-dim transition-colors text-left"
+          >
+            <span className="w-10 h-10 rounded-full bg-red/10 text-red flex items-center justify-center shrink-0">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="11" height="11" rx="1.5" />
+                <path d="M5 15V5a1.5 1.5 0 0 1 1.5-1.5H15" />
+              </svg>
+            </span>
+            <span>
+              <span className="block text-ink font-semibold text-[0.96rem]">
+                {copied ? 'Copied!' : 'Copy Email Address'}
+              </span>
+              <span className="block text-ink-soft text-[0.82rem]">No mail app? Copy and send it yourself</span>
+            </span>
+          </button>
         </div>
       </div>
     </div>

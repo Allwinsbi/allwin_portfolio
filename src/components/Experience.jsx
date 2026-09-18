@@ -4,17 +4,16 @@ import Container from './Container'
 export default function Experience() {
   const ref = useReveal()
   return (
-    <section className="py-16 sm:py-28 bg-surface border-y border-line" ref={ref}>
+    <section id="experience" className="py-16 sm:py-28 bg-paper-dim border-y border-line" ref={ref}>
       <Container>
-        <h2 className="font-display text-[1.9rem] sm:text-[2.6rem] font-extrabold max-w-[18ch] mb-10 text-ink reveal">
-          Professional Experience
-        </h2>
+        <span className="eyebrow reveal">Field Notes</span>
+        <h2 className="section-title mb-10 reveal">Experience</h2>
 
         <div className="reveal grid sm:grid-cols-[220px_1fr] gap-6 sm:gap-10 border border-line rounded-lg p-7 sm:p-9 bg-paper">
           <div>
-            <p className="font-display text-xl font-bold text-ink">Accenture</p>
+            <p className="font-display text-xl text-ink">Accenture</p>
             <p className="text-ink-soft text-[0.85rem] mt-3">April 2025 – May 2026</p>
-            <p className="text-accent text-[0.85rem] mt-1">1 Year Professional Experience</p>
+            <p className="text-red-deep text-[0.85rem] mt-1 font-semibold">1 Year Professional Experience</p>
           </div>
           <div className="space-y-4">
             <p className="text-ink-soft text-[0.96rem] max-w-[62ch]">
