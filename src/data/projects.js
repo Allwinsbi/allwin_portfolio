@@ -5,7 +5,7 @@ export const projects = [
     category: 'Modern E-commerce Platform',
     status: 'live',
     url: 'https://vilzoo.vercel.app',
-    image: '/projects/vilzoo.png',
+    image: `${import.meta.env.BASE_URL}projects/vilzoo.png`,
     imageAspect: '1814 / 875',
     description:
       'A modern e-commerce platform designed to provide a smooth and intuitive online shopping experience. VILZOO focuses on making product discovery, browsing and customer interactions simple while providing a strong foundation for e-commerce operations.',
@@ -27,7 +27,7 @@ export const projects = [
     category: 'Water Technology & E-commerce Platform',
     status: 'live',
     url: 'https://www.aeronero.com',
-    image: '/projects/aeronero.png',
+    image: `${import.meta.env.BASE_URL}projects/aeronero.png`,
     imageAspect: '1795 / 842',
     description:
       'A product-focused digital platform developed for AERONERO, a water-technology business. The website combines business storytelling, product presentation and e-commerce functionality to create a professional digital experience for customers exploring water technology solutions.',
@@ -49,7 +49,7 @@ export const projects = [
     category: 'Traditional Business Website',
     status: 'coming-soon',
     url: null,
-    image: '/projects/thangam.png',
+    image: `${import.meta.env.BASE_URL}projects/thangam.png`,
     imageAspect: '1672 / 941',
     description:
       'A modern digital presence created for a traditional business, combining the identity and character of the business with a contemporary web experience. The project focuses on presenting the business, its offerings and its identity in a clear, engaging and professional way while providing a smooth experience across modern devices.',
