@@ -2,7 +2,7 @@ import { useReveal } from '../hooks/useReveal'
 import Container from './Container'
 
 const LINKS = [
-  { label: 'Email', href: 'mailto:allwinsbi@gmail.com' },
+  { label: 'Email', href: 'mailto:info.vilzoo@gmail.com' },
   { label: 'GitHub', href: 'https://github.com/Allwinsbi' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/allwin-s-942a172b7' },
 ]

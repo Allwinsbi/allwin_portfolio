@@ -40,8 +40,8 @@ export default function Footer() {
           </nav>
 
           <div className="text-[0.92rem] flex flex-col gap-2.5">
-            <a href="mailto:allwinsbi@gmail.com" className="hover:text-paper transition-colors w-fit">
-              allwinsbi@gmail.com
+            <a href="mailto:info.vilzoo@gmail.com" className="hover:text-paper transition-colors w-fit">
+              info.vilzoo@gmail.com
             </a>
             <a
               href="https://github.com/Allwinsbi"
