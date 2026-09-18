@@ -12,39 +12,39 @@ const CARDS = [
 export default function About() {
   const ref = useReveal()
   return (
-    <section id="about" className="py-16 sm:py-28" ref={ref}>
+    <section id="about" className="py-16 sm:py-28 bg-ink" ref={ref}>
       <Container>
         <div className="grid md:grid-cols-2 gap-10 md:gap-[72px] items-start">
           <div className="reveal">
             <span className="eyebrow">About Me</span>
-            <h2 className="section-title max-w-[14ch] mb-10">
+            <h2 className="section-title text-paper max-w-[14ch] mb-10">
               Building Digital Products With Purpose
             </h2>
             <div className="space-y-[18px]">
-              <p className="text-ink-soft max-w-[52ch]">
+              <p className="text-white/60 max-w-[52ch]">
                 I'm a Full-Stack Developer with 1 year of professional experience at
                 Accenture, combined with hands-on experience developing real-world
                 websites, e-commerce platforms and application concepts.
               </p>
-              <p className="text-ink-soft max-w-[52ch]">
+              <p className="text-white/60 max-w-[52ch]">
                 I enjoy transforming ideas and business requirements into modern
                 digital products with a strong focus on user experience, responsive
                 design, reliable backend systems and practical functionality.
               </p>
-              <p className="text-ink-soft max-w-[52ch]">
+              <p className="text-white/60 max-w-[52ch]">
                 My experience covers the complete development journey — from
                 designing frontend experiences and developing backend APIs to
                 working with databases, application infrastructure and deployment
                 environments.
               </p>
-              <p className="text-ink-soft max-w-[52ch]">
+              <p className="text-white/60 max-w-[52ch]">
                 I'm passionate about technology, continuous learning and building
                 products that solve real-world problems.
               </p>
             </div>
           </div>
 
-          <div className="grid gap-px bg-line border border-line">
+          <div className="grid gap-px bg-white/10">
             {CARDS.map((c, i) => {
               const dark = i % 2 === 0
               return (
