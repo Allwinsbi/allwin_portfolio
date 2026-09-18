@@ -45,12 +45,18 @@ export default function About() {
           </div>
 
           <div className="grid gap-px bg-line border border-line">
-            {CARDS.map((c, i) => (
-              <div className={`bg-black px-7 py-6 reveal r${(i % 3) + 1}`} key={c.title}>
-                <h3 className="text-[1.02rem] font-semibold mb-2 text-white">{c.title}</h3>
-                <p className="text-ink-soft text-[0.95rem]">{c.text}</p>
-              </div>
-            ))}
+            {CARDS.map((c, i) => {
+              const dark = i % 2 === 0
+              return (
+                <div
+                  className={`px-7 py-6 reveal r${(i % 3) + 1} ${dark ? 'bg-ink text-paper' : 'bg-paper text-ink'}`}
+                  key={c.title}
+                >
+                  <h3 className="text-[1.02rem] font-semibold mb-2">{c.title}</h3>
+                  <p className={`text-[0.95rem] ${dark ? 'text-white/60' : 'text-ink-soft'}`}>{c.text}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </Container>
