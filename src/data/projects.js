@@ -1,5 +1,26 @@
 export const projects = [
   {
+    id: 'thangam',
+    name: 'NEW THANGAM',
+    category: 'Traditional Business Website',
+    status: 'live',
+    url: 'https://www.newthangam.online',
+    image: `${import.meta.env.BASE_URL}projects/thangam.png`,
+    imageAspect: '1672 / 941',
+    description:
+      'A modern digital presence created for a traditional business, combining the identity and character of the business with a contemporary web experience. The project focuses on presenting the business, its offerings and its identity in a clear, engaging and professional way while providing a smooth experience across modern devices.',
+    highlights: [
+      'Traditional business identity with modern design',
+      'Professional business presentation',
+      'Responsive experience',
+      'Clear navigation',
+      'Service and product presentation',
+      'Customer-focused interface',
+      'Mobile-friendly design',
+    ],
+    featured: true,
+  },
+  {
     id: 'vilzoo',
     name: 'VILZOO',
     category: 'Modern E-commerce Platform',
@@ -42,27 +63,6 @@ export const projects = [
       'Backend and database integration',
     ],
     featured: true,
-  },
-  {
-    id: 'thangam',
-    name: 'THANGAM',
-    category: 'Traditional Business Website',
-    status: 'coming-soon',
-    url: null,
-    image: `${import.meta.env.BASE_URL}projects/thangam.png`,
-    imageAspect: '1672 / 941',
-    description:
-      'A modern digital presence created for a traditional business, combining the identity and character of the business with a contemporary web experience. The project focuses on presenting the business, its offerings and its identity in a clear, engaging and professional way while providing a smooth experience across modern devices.',
-    highlights: [
-      'Traditional business identity with modern design',
-      'Professional business presentation',
-      'Responsive experience',
-      'Clear navigation',
-      'Service and product presentation',
-      'Customer-focused interface',
-      'Mobile-friendly design',
-    ],
-    featured: false,
   },
   {
     id: 'chill',

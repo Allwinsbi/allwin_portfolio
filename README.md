@@ -29,7 +29,7 @@ required.
 - `src/components/` — one file per section (Hero, About, Services, Projects, Skills, Approach, WhyWorkWithMe, Contact, Footer) plus `Nav` and a shared `Container` layout wrapper. Styling is Tailwind utility classes directly on elements — no per-component CSS files.
 - `tailwind.config.js` — design tokens (colors, fonts) used throughout: `ink`, `ink-soft`, `paper`, `paper-dim`, `line`, `gold`, `gold-deep`, `live`, `coming`.
 - `src/index.css` — Tailwind directives, plus the small bits that aren't cleanly expressible as static utilities: the scroll-reveal transition (driven by a JS-toggled class) and `prefers-reduced-motion` overrides.
-- `src/data/projects.js` — VILZOO, AERONERO (live) and THANGAM, CHILL, SYNZOO (coming soon). Edit this file to update project copy/status/links without touching components.
+- `src/data/projects.js` — NEW THANGAM, VILZOO, AERONERO (live) and CHILL, SYNZOO (coming soon). Edit this file to update project copy/status/links without touching components.
 - `src/hooks/useReveal.js` — small IntersectionObserver hook that drives the scroll-reveal animations; respects `prefers-reduced-motion`.
 
 ## Notes
